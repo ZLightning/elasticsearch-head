@@ -3,4 +3,5 @@
 *.tmproj
 *.sublime-workspace
 .project
+clusters.js
 node_modules
