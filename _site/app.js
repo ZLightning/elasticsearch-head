@@ -3902,12 +3902,25 @@
 						scan_properties(path.concat(prop), obj.properties[prop]);
 					}
 				} else {
+					//If it can't be searched, don't add it to the filter list
+					if(obj.enabled === false) {
+						return;
+					}
 					// handle multi_field 
 					if (obj.fields) {
-						for (var subField in obj.fields) {
-							filters.push({ path: (path[path.length - 1] !== subField) ? path.concat(subField) : path, type: obj.fields[subField].type, meta: obj.fields[subField] });
+						if(obj.type && obj.type !== 'object' && obj.type !== 'nested') {
+							if(obj.index !== 'no') {
+								let shallow = Object.assign({}, obj);
+								delete shallow.fields;
+								filters.push({ path: path, type: obj.type, meta: shallow });
+							}
 						}
-					} else {
+						for (var subField in obj.fields) {
+							if(obj.fields[subField].index !== 'no') {
+								filters.push({ path: path.concat(subField), type: obj.fields[subField].type, meta: obj.fields[subField] });
+							}
+						}
+					} else if(obj.index !== 'no') {
 						filters.push({ path: path, type: obj.type, meta: obj });
 					}
 				}
