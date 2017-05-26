@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "start": "grunt server",
+    "start": "node ./bin/www",
+    "grunt": "grunt server",
     "test": "grunt jasmine",
     "proxy": "node proxy/index.js"
   },
@@ -29,6 +30,11 @@
     "grunt-contrib-jasmine": "1.0.3",
     "karma": "1.3.0",
     "grunt-karma": "2.0.0",
-    "http-proxy": "1.16.x"
+    "http-proxy": "1.16.x",
+    "express": "^4.15.3",
+    "http-proxy-middleware": "^0.17.4",
+    "morgan": "^1.8.2",
+    "pug": "^2.0.0-rc.1",
+    "serve-favicon": "^2.4.3"
   }
 }

@@ -1,0 +1,4 @@
+'use strict';
+module.exports = {
+	myCluster: { target: 'https://example.com', secure: true },
+}
