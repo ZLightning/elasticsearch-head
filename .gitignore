@@ -1,7 +1,9 @@
 .idea
 *.iml
 *.tmproj
+*.swp
 *.sublime-workspace
+*npm-debug.log
 .project
 clusters.js
 node_modules
