@@ -2076,6 +2076,8 @@
 
 						console.log("here!!", bPretty);
 
+						document.body.appendChild(_a);
+						_a.setAttribute("type", "hidden");
 						_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent("this is neek!"));
 						_a.setAttribute('download', "SavedResults.json");
 						_a.innerHTML = "download link";
