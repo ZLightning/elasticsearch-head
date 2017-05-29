@@ -2038,6 +2038,7 @@
 			this.tools.text(store.summary);
 			this.headers.empty().append(this._header_template(store.columns));
 			this.body.empty().append(this._body_template(store.data, store.columns));
+			window.neek = store; //# <neek/>
 			this._reflow();
 		},
 		_reflow: function() {
