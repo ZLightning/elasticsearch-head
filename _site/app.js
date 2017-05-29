@@ -2069,7 +2069,7 @@
 				
 				// <neek>
 				{ tag: "BUTTON", type: "button", text: "Save Results As...", onclick: function () {
-					var bPretty = this.el.find(".uiFilterBrowser-prettySave").attr("checked"),
+					var bPretty = $(".uiFilterBrowser-prettySave").is(':checked'),
 						_a = document.createElement('a')
 					;
 
