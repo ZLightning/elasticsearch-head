@@ -2939,6 +2939,8 @@
 				this.errEl.text(e.message);
 				return;
 			}
+			this.transport = { data: data }; //# <neek/>
+			window.neeker = data;
 			if(this.asGraphEl.attr("checked")) {
 				var w = this.outEl.width();
 				raphael(this.outEl[0], w - 10, 300)
