@@ -2079,8 +2079,6 @@
 							_a = document.createElement('a')
 						;
 
-window.neek2 = that;
-
 						document.body.appendChild(_a);
 						_a.setAttribute("style", "display: none;");
 						_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(sJSON));
