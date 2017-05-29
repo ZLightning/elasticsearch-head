@@ -2940,7 +2940,6 @@
 				return;
 			}
 			this.transport = { data: data }; //# <neek/>
-			window.neeker = data;
 			if(this.asGraphEl.attr("checked")) {
 				var w = this.outEl.width();
 				raphael(this.outEl[0], w - 10, 300)
@@ -2993,6 +2992,8 @@
 			this.setHistoryItem( item );
 		},
 		_main_template: function() {
+			var that = this; //# <neek/>
+
 			return { tag: "DIV", cls: "anyRequest", children: [
 				{ tag: "DIV", cls: "uiAnyRequest-request", children: [
 					new app.ui.SidebarSection({
@@ -3012,6 +3013,27 @@
 							{ tag: "BUTTON", css: { cssFloat: "right" }, type: "button", children: [ { tag: "B", text: i18n.text("AnyRequest.Request") } ], onclick: this._request_handler },
 							{ tag: "BUTTON", type: "button", text: i18n.text("AnyRequest.ValidateJSON"), onclick: this._validateJson_handler },
 							{ tag: "LABEL", children: [ { tag: "INPUT", type: "checkbox", name: "pretty" }, i18n.text("AnyRequest.Pretty") ] },
+
+							//# <neek>
+							{ tag: "BUTTON", type: "button", text: "Save Results As...",
+								onclick: function () {
+									var bPretty = $("input[type='checkbox'][name='pretty']").is(':checked'),
+										oJSON = that.transport.data, // that.config.results.hits.hits,
+										sJSON = JSON.stringify(oJSON, null, (bPretty ? "\t" : "")),
+										_a = document.createElement('a')
+									;
+
+									document.body.appendChild(_a);
+									_a.setAttribute("style", "display: none;");
+									_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(sJSON));
+									_a.setAttribute('download', "SavedResults_AnyRequest.json");
+									_a.innerHTML = "download link";
+									_a.click();
+									_a.remove();
+								}
+							},
+							//# </neek>
+
 							{ tag: "DIV", cls: "uiAnyRequest-jsonErr" }
 						]}
 					}),
