@@ -2071,14 +2071,17 @@
 				{ tag: "BUTTON", type: "button", text: "Save Results As...",
 					onclick: function () {
 						var bPretty = $(".uiFilterBrowser-prettySave").is(':checked'),
+							oJSON = { neek: "camp" },
+							sJSON = JSON.stringify(oJSON, null, (bPretty ? "/t" : "")),
 							_a = document.createElement('a')
 						;
 
-						console.log("here!!", bPretty);
+						console.log(this);
+						console.log(sJSON);
 
 						document.body.appendChild(_a);
 						_a.setAttribute("style", "display: none;");
-						_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent("this is neek!"));
+						_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(sJSON));
 						_a.setAttribute('download', "SavedResults.json");
 						_a.innerHTML = "download link";
 						_a.click();
