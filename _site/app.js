@@ -2082,7 +2082,7 @@
 						document.body.appendChild(_a);
 						_a.setAttribute("style", "display: none;");
 						_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(sJSON));
-						_a.setAttribute('download', "SavedResults.json");
+						_a.setAttribute('download', "SavedResults_StructuredQuery.json");
 						_a.innerHTML = "download link";
 						_a.click();
 						_a.remove();
