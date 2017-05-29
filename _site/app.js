@@ -2038,7 +2038,7 @@
 			this.tools.text(store.summary);
 			this.headers.empty().append(this._header_template(store.columns));
 			this.body.empty().append(this._body_template(store.data, store.columns));
-			window.neek = store; //# <neek/>
+			this.transport = { data: store.data }; //# <neek/>
 			this._reflow();
 		},
 		_reflow: function() {
@@ -2074,15 +2074,12 @@
 				{ tag: "BUTTON", type: "button", text: "Save Results As...",
 					onclick: function () {
 						var bPretty = $(".uiFilterBrowser-prettySave").is(':checked'),
-							oJSON = { neek: "camp" }, // that.config.results.hits.hits,
+							oJSON = that.transport.data, // that.config.results.hits.hits,
 							sJSON = JSON.stringify(oJSON, null, (bPretty ? "\t" : "")),
 							_a = document.createElement('a')
 						;
 
-						window.neek = {
-							that: that,
-							json: sJSON
-						};
+window.neek2 = that;
 
 						document.body.appendChild(_a);
 						_a.setAttribute("style", "display: none;");
