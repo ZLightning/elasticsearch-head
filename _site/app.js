@@ -2066,6 +2066,19 @@
 		_main_template: function() {
 			return { tag: "DIV", id: this.id(), css: { width: this.config.width + "px" }, cls: this._baseCls, children: [
 				{ tag: "DIV", cls: "uiTable-tools" },
+				
+				// <neek>
+				{ tag: "BUTTON", type: "button", text: "Save Results As...", onclick: function () {
+					console.log("here!!");
+					
+					//var a = document.createElement('a');
+					//a.setAttribute('href', 'data:text/plain;charset=utf-u,'+encodeURIComponent(text));
+					//a.setAttribute('download', filename);
+					//a.click()
+				} },
+				{ tag: "LABEL", children: [ { tag: "INPUT", type: "checkbox", cls: "uiFilterBrowser-showSrc" }, "Pretty JSON Output" ] },
+				// </neek>
+
 				{ tag: "DIV", cls: "uiTable-headers", onclick: this._headerClick_handler },
 				{ tag: "DIV", cls: "uiTable-body",
 					onclick: this._dataClick_handler,
