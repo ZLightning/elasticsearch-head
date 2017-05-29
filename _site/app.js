@@ -2069,14 +2069,17 @@
 				
 				// <neek>
 				{ tag: "BUTTON", type: "button", text: "Save Results As...", onclick: function () {
-					console.log("here!!");
-					
-					//var a = document.createElement('a');
-					//a.setAttribute('href', 'data:text/plain;charset=utf-u,'+encodeURIComponent(text));
-					//a.setAttribute('download', filename);
-					//a.click()
+					var bPretty = this.el.find(".uiFilterBrowser-prettySave").attr("checked"),
+						_a = document.createElement('a')
+					;
+
+					console.log("here!!", bPretty);
+
+					_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent("this is neek!"));
+					_a.setAttribute('download', "SavedResults.json");
+					_a.click()
 				} },
-				{ tag: "LABEL", children: [ { tag: "INPUT", type: "checkbox", cls: "uiFilterBrowser-showSrc" }, "Pretty JSON Output" ] },
+				{ tag: "LABEL", children: [ { tag: "INPUT", type: "checkbox", cls: "uiFilterBrowser-prettySave" }, "Pretty JSON Output" ] },
 				// </neek>
 
 				{ tag: "DIV", cls: "uiTable-headers", onclick: this._headerClick_handler },
