@@ -2073,7 +2073,7 @@
 				{ tag: "BUTTON", type: "button", text: "Save Results As...",
 					onclick: function () {
 						var bPretty = $(".uiFilterBrowser-prettySave").is(':checked'),
-							oJSON = that.config.results.hits.hits,
+							oJSON = { neek: "camp" }, // that.config.results.hits.hits,
 							sJSON = JSON.stringify(oJSON, null, (bPretty ? "\t" : "")),
 							_a = document.createElement('a')
 						;
