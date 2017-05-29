@@ -2068,17 +2068,20 @@
 				{ tag: "DIV", cls: "uiTable-tools" },
 				
 				// <neek>
-				{ tag: "BUTTON", type: "button", text: "Save Results As...", onclick: function () {
-					var bPretty = $(".uiFilterBrowser-prettySave").is(':checked'),
-						_a = document.createElement('a')
-					;
+				{ tag: "BUTTON", type: "button", text: "Save Results As...",
+					onclick: function () {
+						var bPretty = $(".uiFilterBrowser-prettySave").is(':checked'),
+							_a = document.createElement('a')
+						;
 
-					console.log("here!!", bPretty);
+						console.log("here!!", bPretty);
 
-					_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent("this is neek!"));
-					_a.setAttribute('download', "SavedResults.json");
-					_a.click()
-				} },
+						_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent("this is neek!"));
+						_a.setAttribute('download', "SavedResults.json");
+						_a.innerHTML = "download link";
+						_a.click();
+					}
+				},
 				{ tag: "LABEL", children: [ { tag: "INPUT", type: "checkbox", cls: "uiFilterBrowser-prettySave" }, "Pretty JSON Output" ] },
 				// </neek>
 
