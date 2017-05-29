@@ -2064,20 +2064,22 @@
 			}
 		},
 		_main_template: function() {
+			var that = this; //# <neek/>
+
 			return { tag: "DIV", id: this.id(), css: { width: this.config.width + "px" }, cls: this._baseCls, children: [
 				{ tag: "DIV", cls: "uiTable-tools" },
 				
-				// <neek>
+				//# <neek>
 				{ tag: "BUTTON", type: "button", text: "Save Results As...",
 					onclick: function () {
 						var bPretty = $(".uiFilterBrowser-prettySave").is(':checked'),
-							oJSON = { neek: "camp" },
+							oJSON = that.config.results.hits.hits,
 							sJSON = JSON.stringify(oJSON, null, (bPretty ? "\t" : "")),
 							_a = document.createElement('a')
 						;
 
 						window.neek = {
-							that: this,
+							that: that,
 							json: sJSON
 						};
 
@@ -2091,7 +2093,7 @@
 					}
 				},
 				{ tag: "LABEL", children: [ { tag: "INPUT", type: "checkbox", cls: "uiFilterBrowser-prettySave" }, "Pretty JSON Output" ] },
-				// </neek>
+				//# </neek>
 
 				{ tag: "DIV", cls: "uiTable-headers", onclick: this._headerClick_handler },
 				{ tag: "DIV", cls: "uiTable-body",
