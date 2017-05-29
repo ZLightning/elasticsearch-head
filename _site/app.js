@@ -2072,12 +2072,14 @@
 					onclick: function () {
 						var bPretty = $(".uiFilterBrowser-prettySave").is(':checked'),
 							oJSON = { neek: "camp" },
-							sJSON = JSON.stringify(oJSON, null, (bPretty ? "/t" : "")),
+							sJSON = JSON.stringify(oJSON, null, (bPretty ? "\t" : "")),
 							_a = document.createElement('a')
 						;
 
-						console.log(this);
-						console.log(sJSON);
+						window.neek = {
+							that: this,
+							json: sJSON
+						};
 
 						document.body.appendChild(_a);
 						_a.setAttribute("style", "display: none;");
