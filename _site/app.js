@@ -2220,14 +2220,13 @@
 		
 		_main_template: function() {
 			try {
-					return { tag: "DIV", cls: "uiJsonPretty", children: this.pretty.parse(this.config.obj) // };
-						//# <neek>
-						/*.unshift([
-							window.neek.ui.saveResultsAs("SavedResults_StructuredQuery.json"),
-							window.neek.ui.prettyCheckbox
-						])*/
-						//# </neek>
-					};
+					//return { tag: "DIV", cls: "uiJsonPretty", children: this.pretty.parse(this.config.obj) };
+
+					return { tag: "DIV", children: [
+						window.neek.ui.saveResultsAs("SavedResults_StructuredQuery.json"),
+						window.neek.ui.prettyCheckbox,
+						{ tag: "DIV", cls: "uiJsonPretty", children: this.pretty.parse(this.config.obj) }
+					]}
 			}	catch (error) {
 					throw "JsonPretty error: " + error.message;
 			}
