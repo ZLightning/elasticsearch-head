@@ -2997,7 +2997,7 @@
 							{ tag: "BUTTON", css: { cssFloat: "right" }, type: "button", children: [ { tag: "B", text: i18n.text("AnyRequest.Request") } ], onclick: this._request_handler },
 							{ tag: "BUTTON", type: "button", text: i18n.text("AnyRequest.ValidateJSON"), onclick: this._validateJson_handler },
 							{ tag: "LABEL", children: [ { tag: "INPUT", type: "checkbox", name: "pretty" }, i18n.text("AnyRequest.Pretty") ] },
-							window.neek.ui.saveResultsAs("SavedResults_StructuredQuery.json", "input[type='checkbox'][name='pretty']"), //# <neek/>
+							window.neek.ui.saveResultsAs("SavedResults_AnyRequest.json", "input[type='checkbox'][name='pretty']"), //# <neek/>
 							{ tag: "DIV", cls: "uiAnyRequest-jsonErr" }
 						]}
 					}),
