@@ -2038,7 +2038,7 @@
 			this.tools.text(store.summary);
 			this.headers.empty().append(this._header_template(store.columns));
 			this.body.empty().append(this._body_template(store.data, store.columns));
-			window.neek.setData(store.data); // this.config.json); //# <neek/>
+			window.neek.setData(store.data); //# <neek/>
 			this._reflow();
 		},
 		_reflow: function() {
@@ -2221,12 +2221,14 @@
 		_main_template: function() {
 			try {
 					//return { tag: "DIV", cls: "uiJsonPretty", children: this.pretty.parse(this.config.obj) };
-
+					//# <neek>
+					window.neek.setData(this.config.obj); //# <neek/>
 					return { tag: "DIV", children: [
 						window.neek.ui.saveResultsAs("SavedResults_StructuredQuery.json"),
 						window.neek.ui.prettyCheckbox,
 						{ tag: "DIV", cls: "uiJsonPretty", children: this.pretty.parse(this.config.obj) }
 					]}
+					//# </neek>
 			}	catch (error) {
 					throw "JsonPretty error: " + error.message;
 			}
