@@ -2038,7 +2038,7 @@
 			this.tools.text(store.summary);
 			this.headers.empty().append(this._header_template(store.columns));
 			this.body.empty().append(this._body_template(store.data, store.columns));
-			window.neek.setData(this.config.json); //store.data); //# <neek/>
+			window.neek.setData(store.data); // this.config.json); //# <neek/>
 			this._reflow();
 		},
 		_reflow: function() {
@@ -2222,10 +2222,10 @@
 			try {
 					return { tag: "DIV", cls: "uiJsonPretty", children: this.pretty.parse(this.config.obj) // };
 						//# <neek>
-						.unshift([
+						/*.unshift([
 							window.neek.ui.saveResultsAs("SavedResults_StructuredQuery.json"),
 							window.neek.ui.prettyCheckbox
-						])
+						])*/
 						//# </neek>
 					};
 			}	catch (error) {
