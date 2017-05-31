@@ -4477,25 +4477,6 @@
 window.neek = {};
 
 !function (core, $) {
-	function clickHandler(sCheckboxSelector, sFilename) {
-		var _a = document.createElement('a'),
-			$prettyCheckbox = $(sCheckboxSelector || ".uiFilterBrowser-prettySave"),
-			sWhitespace = ($prettyCheckbox && $prettyCheckbox.is(':checked') ?
-				"\t" :
-				""
-			)
-		;
-
-		document.body.appendChild(_a);
-		_a.setAttribute("style", "display: none;");
-		_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(JSON.stringify(core.data, null, sWhitespace)));
-		_a.setAttribute('download', sFilename || "SavedResults.json");
-		_a.innerHTML = "download link";
-		_a.click();
-		_a.remove();
-	} //# clickHandler
-
-
 	//# 
 	core.data = {};
 
@@ -4509,7 +4490,21 @@ window.neek = {};
 		saveResultsAs: function (sFilename, sCheckboxSelector) {
 			return { tag: "BUTTON", type: "button", text: "Save Results As...",
 				onclick: function () {
-					core.clickHandler($(sCheckboxSelector), sFilename);
+					var _a = document.createElement('a'),
+						$prettyCheckbox = $(sCheckboxSelector || ".uiFilterBrowser-prettySave"),
+						sWhitespace = ($prettyCheckbox && $prettyCheckbox.is(':checked') ?
+							"\t" :
+							""
+						)
+					;
+
+					document.body.appendChild(_a);
+					_a.setAttribute("style", "display: none;");
+					_a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(JSON.stringify(core.data, null, sWhitespace)));
+					_a.setAttribute('download', sFilename || "SavedResults.json");
+					_a.innerHTML = "download link";
+					_a.click();
+					_a.remove();
 				}
 			};
 		},
