@@ -4060,8 +4060,8 @@
 				{ tag: "BUTTON", type: "button", text: i18n.text("General.Search"), onclick: this._search_handler },
 				{ tag: "LABEL", children:
 					i18n.complex("FilterBrowser.OutputType", { tag: "SELECT", cls: "uiFilterBrowser-outputFormat", children: [
-						{ text: i18n.text("Output.Table"), value: "table" },
 						{ text: i18n.text("Output.JSON"), value: "json" },
+						{ text: i18n.text("Output.Table"), value: "table" },
 						{ text: i18n.text("Output.CSV"), value: "csv" }
 					].map(function( o ) { return $.extend({ tag: "OPTION" }, o ); } ) } )
 				},
